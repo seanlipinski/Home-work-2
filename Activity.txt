@@ -1,0 +1,35 @@
+Sub HW2()
+    
+    'set variables
+    Dim Stock_Ticker As String
+    Dim Total_Volume As Double
+    Dim Summary_Table_Row As Integer
+    Dim Yr_Open As Double
+    Dim Yr_Close As Double
+    Dim x As Double
+    Dim Rownumber As Double
+    
+    'Set initial starting point
+    Summary_Table_Row = 2
+    Total_Volume = 0
+    x = 0
+    
+    LastRow = Cells(Rows.Count, 1).End(xlUp).Row
+    'Loop thourgh stock ticker
+    For i = 2 To LastRow
+            'Check current cell with the cell below it
+            If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+
+            Stock_Ticker = Cells(i, 1).Value
+            
+            Range("I" & Summary_Table_Row).Value = Stock_Ticker
+            
+            Summary_Table_Row = Summary_Table_Row + 1
+            
+            End If
+    Next i
+    
+    
+End Sub
+
+	
